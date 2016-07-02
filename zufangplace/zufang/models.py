@@ -73,3 +73,8 @@ class Fang(models.Model):
 class Picture(models.Model):
     fang = models.ForeignKey('zufang.Fang', related_name='pictures')
     url = models.URLField()
+    name = models.CharField(
+        max_length=128,
+        null=True,
+        blank=True,
+    )

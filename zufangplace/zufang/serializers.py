@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from .models import UserProfile
-from .models import Fang
+from . import models
 
 
 class UserProfileSeriazlier(serializers.HyperlinkedModelSerializer):
@@ -16,7 +15,7 @@ class UserProfileSeriazlier(serializers.HyperlinkedModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
-        model = UserProfile
+        model = models.UserProfile
         fields = (
             'url',
             'phone',
@@ -29,11 +28,17 @@ class FangSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='fang-detail',
     )
+    pictures = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='picture-detail',
+        read_only=True,
+    )
 
     class Meta:
-        model = Fang
+        model = models.Fang
         fields = (
             'url',
+            'pictures',
             'is_studio',
             'num_bedroom',
             'num_bathroom',
@@ -48,4 +53,17 @@ class FangSerializer(serializers.HyperlinkedModelSerializer):
             'lat',
             'lon',
             'active',
+        )
+
+
+class PictureSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='picture-detail',
+    )
+
+    class Meta:
+        model = models.Picture
+        fields = (
+            'url',
+            'name',
         )

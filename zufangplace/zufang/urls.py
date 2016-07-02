@@ -8,6 +8,8 @@ from . import views
 router = DefaultRouter()
 router.register(r'userprofile', views.UserProfileViewSet)
 router.register(r'fang', views.FangViewSet)
+router.register(r'picture', views.PictureViewSet)
+
 
 urlpatterns = [
     url('^', include(router.urls)),

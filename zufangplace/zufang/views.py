@@ -18,3 +18,8 @@ class FangViewSet(viewsets.ModelViewSet):
 class UserProfileViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.UserProfile.objects.all()
     serializer_class = serializers.UserProfileSeriazlier
+
+
+class PictureViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = models.Picture.objects.all()
+    serializer_class = serializers.PictureSerializer
