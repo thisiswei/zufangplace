@@ -45,8 +45,18 @@ class Address(models.Model):
         max_length=32,
         default='United States',
     )
-    lat = models.FloatField()
-    lon = models.FloatField()
+    lat = models.FloatField(
+        blank=True,
+        null=True,
+    )
+    lon = models.FloatField(
+        blank=True,
+        null=True,
+    )
+
+    def __unicode__(self):
+        return '%s - %s - %s' % (self.street, self.city, self.state)
+
 
 
 class PhoneNumber(models.Model):
