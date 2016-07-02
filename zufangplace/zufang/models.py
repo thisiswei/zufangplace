@@ -11,7 +11,7 @@ class UserProfile(models.Model):
 
 
 class Fang(models.Model):
-    user_profile = models.ForeignKey(UserProfile)
+    user_profile = models.ForeignKey('zufang.userprofile', related_name='fangs')
     is_studio = models.BooleanField(default=False)
     num_bedroom = models.IntegerField(
         default=None,
