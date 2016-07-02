@@ -34,7 +34,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-db_auth = env.get_uri('DATABASE_DEFAULT', "postgresql://test@localhost/zufangplace")
+db_auth = env.get_uri('DATABASE_DEFAULT', "postgresql://test@localhost/test_zufangplace")
 
 DATABASES = {
     'default': {
