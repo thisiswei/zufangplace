@@ -4,13 +4,14 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
+    phone = models.CharField(max_length=32)
 
     def __unicode__(self):
         return self.user.username
 
 
 class Fang(models.Model):
-    user_profile = models.ManyToManyField(UserProfile)
+    user_profile = models.ForeignKey(UserProfile)
     is_studio = models.BooleanField(default=False)
     num_bedroom = models.IntegerField(
         default=None,
@@ -29,23 +30,22 @@ class Fang(models.Model):
         null=True,
         blank=True,
     )
-    active = models.BooleanField(default=True)
-
-    def __unicode__(self):
-        return '%s: %s %s - num_bathroom: %s' % (
-            self.id,
-            ['number bedroom', 'studio'][self.is_studio],
-            self.num_bedroom,
-            self.num_bathroom,
-        )
-
-
-class Address(models.Model):
-    fang = models.ForeignKey(Fang)
     zipcode = models.CharField(max_length=16)
-    street = models.CharField(max_length=256)
-    city = models.CharField(max_length=32)
-    state = models.CharField(max_length=32)
+    street = models.CharField(
+        max_length=256,
+        null=True,
+        blank=True,
+    )
+    city = models.CharField(
+        max_length=32,
+        null=True,
+        blank=True,
+    )
+    state = models.CharField(
+        max_length=32,
+        null=True,
+        blank=True,
+    )
     country = models.CharField(
         max_length=32,
         default='United States',
@@ -58,13 +58,13 @@ class Address(models.Model):
         blank=True,
         null=True,
     )
+    active = models.BooleanField(default=True)
+
 
     def __unicode__(self):
-        return '%s: %s - %s - %s' % (self.id, self.street, self.city, self.state)
-
-
-
-class PhoneNumber(models.Model):
-    number = models.CharField(max_length=32)
-    user_profile = models.ForeignKey(UserProfile)
-    is_primary = models.BooleanField(default=False)
+        return '%s: %s %s - num_bathroom: %s' % (
+            self.id,
+            ['number bedroom', 'studio'][self.is_studio],
+            self.num_bedroom,
+            self.num_bathroom,
+        )

@@ -4,7 +4,13 @@ from . import models
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'name',
+        'phone',
+    )
+
+    def name(self, obj):
+        return obj.user.username
 
 
 class FangAdmin(admin.ModelAdmin):
@@ -14,6 +20,10 @@ class FangAdmin(admin.ModelAdmin):
         'num_bedroom',
         'num_bathroom',
         'date_avaialable',
+        'city',
+        'state',
+        'price_rent',
+        'price_buy',
     )
 
     class Meta:
@@ -26,7 +36,5 @@ class AddressAdmin(admin.ModelAdmin):
     pass
 
 
-
 admin.site.register(models.UserProfile, UserProfileAdmin)
 admin.site.register(models.Fang, FangAdmin)
-admin.site.register(models.Address, AddressAdmin)
