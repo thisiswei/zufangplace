@@ -21,8 +21,8 @@ class Migration(migrations.Migration):
                 ('city', models.CharField(max_length=32)),
                 ('state', models.CharField(max_length=32)),
                 ('country', models.CharField(default=b'United States', max_length=32)),
-                ('lat', models.FloatField()),
-                ('lon', models.FloatField()),
+                ('lat', models.FloatField(null=True, blank=True)),
+                ('lon', models.FloatField(null=True, blank=True)),
             ],
             options={
             },
@@ -33,23 +33,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('is_studio', models.BooleanField(default=False)),
-                ('num_bedroom', models.IntegerField(default=None, blank=True)),
+                ('num_bedroom', models.IntegerField(default=None, null=True, blank=True)),
                 ('num_bathroom', models.IntegerField()),
                 ('date_avaialable', models.DateTimeField(auto_now_add=True)),
-                ('price_rent', models.FloatField(default=None, blank=True)),
-                ('price_buy', models.FloatField(default=None, blank=True)),
+                ('price_rent', models.FloatField(default=None, null=True, blank=True)),
+                ('price_buy', models.FloatField(default=None, null=True, blank=True)),
                 ('active', models.BooleanField(default=True)),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
-            name='PhoneNumber',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('number', models.CharField(max_length=32)),
-                ('is_primary', models.BooleanField(default=False)),
             ],
             options={
             },
@@ -59,6 +48,7 @@ class Migration(migrations.Migration):
             name='UserProfile',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('phone', models.CharField(max_length=32)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -66,15 +56,9 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.AddField(
-            model_name='phonenumber',
-            name='user_profile',
-            field=models.ForeignKey(to='zufang.UserProfile'),
-            preserve_default=True,
-        ),
-        migrations.AddField(
             model_name='fang',
             name='user_profile',
-            field=models.ManyToManyField(to='zufang.UserProfile'),
+            field=models.ForeignKey(to='zufang.UserProfile'),
             preserve_default=True,
         ),
         migrations.AddField(
