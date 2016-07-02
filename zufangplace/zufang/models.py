@@ -68,3 +68,8 @@ class Fang(models.Model):
             self.num_bedroom,
             self.num_bathroom,
         )
+
+
+class Picture(models.Model):
+    fang = models.ForeignKey('zufang.Fang', related_name='pictures')
+    url = models.URLField()
