@@ -2,6 +2,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 
 from .permissions import IsOwner
+from .permissions import IsPictureFang
 from . import models
 from . import serializers
 
@@ -20,6 +21,10 @@ class UserProfileViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.UserProfileSeriazlier
 
 
-class PictureViewSet(viewsets.ReadOnlyModelViewSet):
+class PictureViewSet(viewsets.ModelViewSet):
     queryset = models.Picture.objects.all()
     serializer_class = serializers.PictureSerializer
+    permission_classes = (
+        IsPictureFang,
+        permissions.IsAuthenticatedOrReadOnly,
+    )

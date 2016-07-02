@@ -72,9 +72,12 @@ class Fang(models.Model):
 
 class Picture(models.Model):
     fang = models.ForeignKey('zufang.Fang', related_name='pictures')
-    url = models.URLField()
+    source = models.URLField()
     name = models.CharField(
         max_length=128,
         null=True,
         blank=True,
     )
+
+    def __unicode__(self):
+        return '%s - %s' % (self.fang.id, self.name)

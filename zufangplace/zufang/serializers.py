@@ -66,4 +66,5 @@ class PictureSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             'url',
             'name',
+            'source',
         )

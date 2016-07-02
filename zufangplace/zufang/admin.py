@@ -32,9 +32,10 @@ class FangAdmin(admin.ModelAdmin):
         )
 
 
-class AddressAdmin(admin.ModelAdmin):
+class PictureAdmin(admin.ModelAdmin):
     pass
 
 
 admin.site.register(models.UserProfile, UserProfileAdmin)
 admin.site.register(models.Fang, FangAdmin)
+admin.site.register(models.Picture, PictureAdmin)
