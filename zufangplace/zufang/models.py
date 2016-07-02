@@ -32,7 +32,12 @@ class Fang(models.Model):
     active = models.BooleanField(default=True)
 
     def __unicode__(self):
-        return '%s %s - num_bathroom: %s' % (['number bedroom', 'studio'][self.is_studio], self.num_bedroom, self.num_bathroom)
+        return '%s: %s %s - num_bathroom: %s' % (
+            self.id,
+            ['number bedroom', 'studio'][self.is_studio],
+            self.num_bedroom,
+            self.num_bathroom,
+        )
 
 
 class Address(models.Model):
@@ -55,7 +60,7 @@ class Address(models.Model):
     )
 
     def __unicode__(self):
-        return '%s - %s - %s' % (self.street, self.city, self.state)
+        return '%s: %s - %s - %s' % (self.id, self.street, self.city, self.state)
 
 
 

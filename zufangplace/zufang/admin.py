@@ -8,6 +8,14 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 class FangAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'is_studio',
+        'num_bedroom',
+        'num_bathroom',
+        'date_avaialable',
+    )
+
     class Meta:
         ordering = (
             '-date_avaialable',
