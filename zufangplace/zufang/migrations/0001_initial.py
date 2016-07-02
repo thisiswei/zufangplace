@@ -33,11 +33,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('is_studio', models.BooleanField(default=False)),
-                ('num_bedroom', models.IntegerField()),
+                ('num_bedroom', models.IntegerField(default=None, blank=True)),
                 ('num_bathroom', models.IntegerField()),
                 ('date_avaialable', models.DateTimeField(auto_now_add=True)),
-                ('price_rent', models.FloatField()),
-                ('price_buy', models.FloatField()),
+                ('price_rent', models.FloatField(default=None, blank=True)),
+                ('price_buy', models.FloatField(default=None, blank=True)),
                 ('active', models.BooleanField(default=True)),
             ],
             options={
