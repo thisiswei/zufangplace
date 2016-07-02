@@ -1,0 +1,7 @@
+Django==1.7.7
+envelop==0.2.0
+gunicorn==18.0
+Jinja2==2.7.1
+psycopg2
+requests==2.3.0
+djangorestframework==3.3.3
