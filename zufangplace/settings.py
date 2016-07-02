@@ -144,7 +144,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
 
     # Our own apps
-    'zufangplace',
+    'zufangplace.zufang',
 )
 
 
