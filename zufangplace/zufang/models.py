@@ -19,7 +19,7 @@ class Fang(models.Model):
         blank=True,
     )
     num_bathroom = models.IntegerField()
-    date_avaialable = models.DateTimeField(auto_now_add=True)
+    date_available = models.DateTimeField(auto_now_add=True)
     price_rent = models.FloatField(
         default=None,
         null=True,

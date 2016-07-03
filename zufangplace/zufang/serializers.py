@@ -42,7 +42,7 @@ class FangSerializer(serializers.HyperlinkedModelSerializer):
             'is_studio',
             'num_bedroom',
             'num_bathroom',
-            'date_avaialable',
+            'date_available',
             'price_rent',
             'price_buy',
             'zipcode',

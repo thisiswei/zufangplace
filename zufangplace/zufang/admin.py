@@ -19,7 +19,7 @@ class FangAdmin(admin.ModelAdmin):
         'is_studio',
         'num_bedroom',
         'num_bathroom',
-        'date_avaialable',
+        'date_available',
         'city',
         'state',
         'price_rent',
@@ -28,7 +28,7 @@ class FangAdmin(admin.ModelAdmin):
 
     class Meta:
         ordering = (
-            '-date_avaialable',
+            '-date_available',
         )
 
 
