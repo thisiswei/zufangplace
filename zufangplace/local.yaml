@@ -1,3 +1,3 @@
 # Add local only settings here
 
-DATABASE_DEFAULT: "postgresql://test@localhost/zufangplace"
+DATABASE_DEFAULT: "postgresql://test@localhost/test_zufangplace"
