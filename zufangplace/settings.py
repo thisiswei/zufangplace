@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     # Our own apps
     'zufangplace.zufang',
     'rest_framework',
+    'rest_framework_swagger',
 )
 
 
