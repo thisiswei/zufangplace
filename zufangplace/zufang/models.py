@@ -64,6 +64,10 @@ class Fang(models.Model):
         null=True,
     )
     active = models.BooleanField(default=True)
+    desc = models.CharField(
+        max_length=512,
+        blank=True,
+    )
 
 
     def __unicode__(self):
