@@ -36,6 +36,20 @@ class PictureAdmin(admin.ModelAdmin):
     pass
 
 
+class LikeAdmin(admin.ModelAdmin):
+    list_display = (
+        'username',
+        'fang_id',
+    )
+
+    def username(self, obj):
+        return obj.likinguser.user.username
+
+    def fang_id(self, obj):
+        return self.fang.id
+
+
 admin.site.register(models.UserProfile, UserProfileAdmin)
 admin.site.register(models.Fang, FangAdmin)
 admin.site.register(models.Picture, PictureAdmin)
+admin.site.register(models.Like, LikeAdmin)
