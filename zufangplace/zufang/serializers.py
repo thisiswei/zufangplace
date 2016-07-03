@@ -33,6 +33,11 @@ class FangSerializer(serializers.HyperlinkedModelSerializer):
         view_name='picture-detail',
         read_only=True,
     )
+    likes = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='like-detail',
+        read_only=True,
+    )
 
     class Meta:
         model = models.Fang
@@ -53,6 +58,7 @@ class FangSerializer(serializers.HyperlinkedModelSerializer):
             'lat',
             'lon',
             'active',
+            'likes',
         )
 
 
@@ -67,4 +73,18 @@ class PictureSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'name',
             'source',
+        )
+
+
+class LikeSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='like-detail',
+    )
+
+    class Meta:
+        model = models.Like
+        fields = (
+            'url',
+            'likinguser',
+            'fang',
         )

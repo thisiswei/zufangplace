@@ -9,6 +9,7 @@ router = DefaultRouter()
 router.register(r'userprofile', views.UserProfileViewSet)
 router.register(r'fang', views.FangViewSet)
 router.register(r'picture', views.PictureViewSet)
+router.register(r'like', views.LikeViewSet)
 
 
 urlpatterns = [

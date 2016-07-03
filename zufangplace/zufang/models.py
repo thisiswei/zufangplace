@@ -10,6 +10,11 @@ class UserProfile(models.Model):
         return self.user.username
 
 
+class Like(models.Model):
+    likinguser = models.ForeignKey('zufang.userprofile', related_name='like_users')
+    fang = models.ForeignKey('zufang.fang', related_name='likes')
+
+
 class Fang(models.Model):
     user_profile = models.ForeignKey('zufang.userprofile', related_name='fangs')
     is_studio = models.BooleanField(default=False)

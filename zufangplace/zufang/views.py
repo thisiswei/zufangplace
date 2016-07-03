@@ -28,3 +28,8 @@ class PictureViewSet(viewsets.ModelViewSet):
         IsPictureFang,
         permissions.IsAuthenticatedOrReadOnly,
     )
+
+
+class LikeViewSet(viewsets.ModelViewSet):
+    queryset = models.Like.objects.all()
+    serializer_class = serializers.LikeSerializer
