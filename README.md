@@ -29,4 +29,4 @@ ZuFangPlace
 ## Maybe features
 * I don't like signin to see details.
 * (maybe) phone number proxy (like-uber-driver-phone-number)?
-
+* free but limited renter can reach you. (someone liked your place, but you need to upgrade to see it)
